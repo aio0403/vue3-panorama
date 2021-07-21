@@ -1,3 +1,24 @@
+<template>
+  <div class="vue3-panorama-sample">
+    <p>The counter was {{ changedBy }} to <b>{{ counter }}</b>.</p>
+    <button @click="increment">
+      Click +1
+    </button>
+    <button @click="decrement">
+      Click -1
+    </button>
+    <button @click="increment(5)">
+      Click +5
+    </button>
+    <button @click="decrement(5)">
+      Click -5
+    </button>
+    <button @click="reset">
+      Reset
+    </button>
+  </div>
+</template>
+
 <script>
 import { defineComponent } from 'vue';
 
@@ -41,27 +62,6 @@ export default /*#__PURE__*/defineComponent({
   },
 });
 </script>
-
-<template>
-  <div class="vue3-panorama-sample">
-    <p>The counter was {{ changedBy }} to <b>{{ counter }}</b>.</p>
-    <button @click="increment">
-      Click +1
-    </button>
-    <button @click="decrement">
-      Click -1
-    </button>
-    <button @click="increment(5)">
-      Click +5
-    </button>
-    <button @click="decrement(5)">
-      Click -5
-    </button>
-    <button @click="reset">
-      Reset
-    </button>
-  </div>
-</template>
 
 <style scoped>
   .vue3-panorama-sample {

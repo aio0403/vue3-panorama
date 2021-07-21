@@ -1,3 +1,4 @@
+// Panorama index.vue
 <template>
   <transition name="slideFade">
     <div v-if="state" class="panorama"
