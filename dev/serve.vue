@@ -1,36 +1,32 @@
-
 <template>
   <div id="app">
-    <vue3-panorama-sample />
-
-       <panorama 
-              :src="vista['image']"
-              repeat
-              :compass-image="project['vista_simulator'].image"
-              default-direction="北" />
+    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"
+                   :start-degree="degree"
+                   repeat
+                   directions>
+      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">
+    </flat-panorama>
   </div>
 </template>
-
 <script>
-import { defineComponent, ref } from 'vue';
-// Uncomment import and local "components" registration if library is not registered globally.
-import { Panorama } from '@/entry.esm';
+import {defineComponent, ref} from 'vue';
+import {FlatPanorama} from "../src/lib-components";
 
 export default defineComponent({
   name: 'ServeDev',
-  components: {Panorama},
+  components: {
+   FlatPanorama,
+  },
   setup(){
-      const vista = ref({image:null,})
+    const degree = ref(-70)
+    return {degree}
 
-    //   const image = ref(
-    //       {
-    //           src : require
-    //       }
-    //   )
-      return {
-          vista,
-      }
   }
 });
 </script>
+<style>
+.img {
+  width: 174px;
+}
+</style>
 
