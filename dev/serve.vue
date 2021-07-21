@@ -1,18 +1,32 @@
+<template>
+  <div id="app">
+    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"
+                   :start-degree="degree"
+                   repeat
+                   directions>
+      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">
+    </flat-panorama>
+  </div>
+</template>
 <script>
-import { defineComponent } from 'vue';
-// Uncomment import and local "components" registration if library is not registered globally.
-// import { Vue3PanoramaSample } from '@/entry.esm';
+import {defineComponent, ref} from 'vue';
+import {FlatPanorama} from "../src/lib-components";
 
 export default defineComponent({
   name: 'ServeDev',
-  // components: {
-  //  Vue3PanoramaSample,
-  // }
+  components: {
+   FlatPanorama,
+  },
+  setup(){
+    const degree = ref(-70)
+    return {degree}
+
+  }
 });
 </script>
+<style>
+.img {
+  width: 174px;
+}
+</style>
 
-<template>
-  <div id="app">
-    <vue3-panorama-sample />
-  </div>
-</template>
