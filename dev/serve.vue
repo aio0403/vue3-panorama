@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"
-                   :start-degree="degree"
-                   repeat
-                   directions>
-      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">
-    </flat-panorama>
+<!--    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"-->
+<!--                   :start-degree="degree"-->
+<!--                   repeat-->
+<!--                   directions>-->
+<!--      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">-->
+<!--    </flat-panorama>-->
+    <er-panorama :src="require('../src/assets/img/pano.jpg')" />
   </div>
 </template>
 <script>
 import {defineComponent, ref} from 'vue';
-import {FlatPanorama} from "../src/lib-components";
+import {FlatPanorama, ErPanorama} from "../src/lib-components";
 
 export default defineComponent({
   name: 'ServeDev',
   components: {
-   FlatPanorama,
+    ErPanorama,
+    FlatPanorama,
   },
   setup(){
     const degree = ref(-70)

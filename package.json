@@ -1,19 +1,16 @@
 {
   "name": "vue3-panorama",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-
   "main": "dist/vue3-panorama.ssr.js",
   "browser": "dist/vue3-panorama.esm.js",
   "module": "dist/vue3-panorama.esm.js",
   "unpkg": "dist/vue3-panorama.min.js",
-
   "files": [
     "dist/*",
     "src/**/*.vue"
   ],
   "sideEffects": false,
-
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
@@ -21,10 +18,9 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
-
   "dependencies": {
+    "three": "^0.130.1"
   },
-
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
