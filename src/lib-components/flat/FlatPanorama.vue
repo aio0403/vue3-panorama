@@ -10,8 +10,7 @@
 
       <div v-if="directions" class="image-wrapper flex align-center justify-center relative">
 
-        <svg ref="compass" class="compass-img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-             viewBox="0 0 200 200">
+        <svg ref="compass" class="compass-img" viewBox="0 0 200 200" style="styles">
           <defs>
             <linearGradient id="linear-gradient" x1="0.5" y1="0.299" x2="0.5" y2="0.943" gradientUnits="objectBoundingBox">
               <stop offset="0" stop-color="#8cc2c9" stop-opacity="0.902"/>
@@ -33,7 +32,7 @@
 </template>
 
 <script>
-import {onMounted, onUnmounted, ref, watch} from "vue";
+import {onMounted, onUnmounted, ref, reactive, watch} from "vue";
 import helpers from "./helpers";
 
 export default {
@@ -46,6 +45,14 @@ export default {
       type:Number,
       default:0,
     },
+    top:{
+      type: String,
+      default: "50%",
+    },
+    left: {
+      type: String,
+      default: "50%",
+    }
   },
   setup(props,){
     const {
@@ -55,7 +62,22 @@ export default {
       touchStartHandler, touchMoveHandler,
     } = helpers(props.startDegree, props.repeat)
 
+    const styles = reactive({
+      top: props.top,
+      left: props.left,
+    })
+
+
+    watch(() => props.top, (val) => {
+      styles.top = val;
+    })
+    watch(() => props.left, (val) => {
+      styles.left = val;
+    })
+
     onMounted(() => {
+      if (!props.top && !props.left) styles.transform = "translate(-50%, -50%);"
+
       window.addEventListener("mouseup", mouseUpHandler)
       init()
     })
@@ -65,7 +87,7 @@ export default {
     })
 
     return {
-      panorama, compass,
+      panorama, compass, styles,
       mouseDownHandler, touchStartHandler,
       mouseMoveHandler, touchMoveHandler,
     }
@@ -95,7 +117,6 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 2;
   width: 130px;
 }
