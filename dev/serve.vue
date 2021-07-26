@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-<!--    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"-->
-<!--                   :start-degree="degree"-->
-<!--                   repeat-->
-<!--                   directions>-->
-<!--      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">-->
-<!--    </flat-panorama>-->
-    <er-panorama :src="require('../src/assets/img/pano.jpg')" />
+    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"
+                   :start-degree="degree"
+                   repeat
+                   directions>
+      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">
+    </flat-panorama>
+<!--    <er-panorama :src="require('../src/assets/img/pano.jpg')" />-->
   </div>
 </template>
 <script>
@@ -22,13 +22,7 @@ export default defineComponent({
   setup(){
     const degree = ref(-70)
     return {degree}
-
   }
 });
 </script>
-<style>
-.img {
-  width: 174px;
-}
-</style>
 

@@ -8,9 +8,8 @@
          ref="panorama"
          :style="{backgroundImage:'url('+src+')'}">
 
-      <div v-if="directions" class="image-wrapper flex align-center justify-center relative">
-
-        <svg ref="compass" class="compass-img" viewBox="0 0 200 200" style="styles">
+      <div v-if="directions" class="compass-wrapper flex align-center justify-center relative">
+        <svg ref="compass" class="compass" viewBox="0 0 200 200" :style="styles">
           <defs>
             <linearGradient id="linear-gradient" x1="0.5" y1="0.299" x2="0.5" y2="0.943" gradientUnits="objectBoundingBox">
               <stop offset="0" stop-color="#8cc2c9" stop-opacity="0.902"/>
@@ -95,7 +94,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .panorama {
   height: 100%;
   width: 100%;
@@ -104,7 +103,7 @@ export default {
   background-position-x: var(--x);
   cursor: grab;
 }
-.panorama > .image-wrapper {
+.panorama > .compass-wrapper {
   position: absolute;
   z-index: 2;
   top: 10px;
@@ -113,12 +112,16 @@ export default {
   height: auto;
   border-radius: 14px;
 }
-.panorama > .image-wrapper > svg.compass-img {
+.panorama > .compass-wrapper > svg.compass {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 2;
-  width: 130px;
+  width: 120px;
+}
+.panorama > .compass-wrapper > img {
+  width: 200px;
+  height: auto;
 }
 
 /* Enter and leave animations can use different */
