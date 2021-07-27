@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"
-                   :start-degree="degree"
-                   repeat
-                   directions>
-      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">
-    </flat-panorama>
-<!--    <er-panorama :src="require('../src/assets/img/pano.jpg')" />-->
+<!--    <flat-panorama :src="require('../src/assets/img/7f.jpeg')"-->
+<!--                   :start-degree="degree"-->
+<!--                   repeat-->
+<!--                   directions>-->
+<!--      <img class="img" :src="require('../src/assets/img/shinmachi.jpg')" alt="">-->
+<!--    </flat-panorama>-->
+<!--    n_001-->
+
+
+    <er-panorama :src="require('../src/assets/img/n_001.jpg')" />
   </div>
 </template>
 <script>

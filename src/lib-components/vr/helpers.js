@@ -1,9 +1,6 @@
 import * as THREE from 'three/build/three.module.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { LightProbeHelper } from 'three/examples/jsm/helpers/LightProbeHelper.js';
-import { LightProbeGenerator } from 'three/examples/jsm/lights/LightProbeGenerator.js';
 
-export default function (container, src){
+export default function (){
   let camera, scene, renderer;
 
   let isUserInteracting = false,
@@ -12,8 +9,7 @@ export default function (container, src){
     lat = 0, onPointerDownLat = 0,
     phi = 0, theta = 0;
 
-  const init = () => {
-
+  const init = (container, src) => {
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
 
     scene = new THREE.Scene();
@@ -22,10 +18,10 @@ export default function (container, src){
     // invert the geometry on the x-axis so that all of the faces point inward
     geometry.scale( - 1, 1, 1 );
 
-    const texture = new THREE.TextureLoader().load( src);
-    const material = new THREE.MeshBasicMaterial( { map: texture } );
+    let texture = new THREE.TextureLoader().load(src);
+    let material = new THREE.MeshBasicMaterial( { map: texture } );
 
-    const mesh = new THREE.Mesh( geometry, material );
+    let mesh = new THREE.Mesh( geometry, material );
 
     scene.add( mesh );
 

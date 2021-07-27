@@ -1,9 +1,9 @@
 <template>
-  <div ref="container" class="container"></div>
+  <div ref="container" id="er-pano" class="container"></div>
 </template>
 
 <script>
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import helpers from "./helpers";
 
 export default {
@@ -13,9 +13,18 @@ export default {
   },
   setup(props,){
     const container = ref(null)
-    const {init,animate} = helpers(container, props.src)
+    const source = ref(null)
+    const {init,animate} = helpers()
+
+    watch(() => props.src, (val) => {
+      init(container, val)
+      animate()
+      container.value.removeChild(container.value.firstElementChild)
+    })
+
     onMounted(() => {
-      init()
+      source.value = props.src
+      init(container, source.value)
       animate()
     })
 
